@@ -21,6 +21,7 @@ px,py,pxx,pyy = 0,0,0,0;
 dex = 5;
 global devmode;
 devmode = True;
+print('Dev Mode enabled')
 def deathl(self):
 	global y;
 	global x;
@@ -1128,11 +1129,14 @@ def dude():
 				boss.move();
 				boss.killself();
 	if not paused:
+		if not bosslevel:
+			try:
+				boss.deathl();
+			except:
+				pass;
 		if gameslow>0:
 			for i in range(1,(gameslow-1)*100):
 				coin(x,y);
-		else:
-			time.sleep(0.000001);
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit();
@@ -1810,6 +1814,46 @@ bx = 10;
 by = 20;
 mov = 0.105;
 paiud();
+draws = [saps(0,230,450,500), saps(320,500,420,500)];
+water = [];
+death = [];
+win = daps(450, 500, 310, 420);
+a = win[0];
+score = 0;
+startcoins = [coin(40,440), coin(90,440), coin(140,440), coin(200,440), coin(240,400), coin(280,350), coin(320,380), coin(350,410), coin(400,410)];
+coins = [];
+for i in startcoins:
+	coins.append(i);
+starttallgooms = [];
+tallgooms = [];
+for i in starttallgooms:
+	tallgooms.append(i);
+startbuffgooms=[];
+buffgooms = [];
+for i in startbuffgooms:
+	buffgooms.append(buffgoom(i.x,i.y));
+startfiregooms=[];
+firegooms = [];
+for i in startfiregooms:
+	firegooms.append(firegoom(i.x,i.y));
+startoctogooms= [];
+octogooms = [];
+for i in startoctogooms:
+	octogooms.append(octogoom(i.x,i.y));
+jumpmon = nop;
+nomp= False;
+done=False;
+startx= 10;
+starty= 430;
+x=startx;
+y=starty;
+tex=True;
+while not done:
+	dude();
+tscore+=score;
+level+=1 if level == tklevel else 0;
+tklevel+=1;
+clsn();
 draws = [saps(270,500,400,500),saps(10,160,100,160),saps(180,200,300,320),saps(0,160,200,250),saps(300,410,110,140)];
 water = []#waps(0,500,0,500)];
 death = [];
@@ -1851,87 +1895,9 @@ level+=1 if level == tklevel else 0;
 tklevel+=1;
 
 
-clsn();
-draws = [saps(0,40,0,120),saps(0,260,470,500), saps(350,420,470,480), saps(320,350,470,480), saps(430,500,390,400), saps(0,10,0,90), saps(10,40,0,90), saps(40,160,0,30), saps(0,360,320,340), saps(240,260,450,500), saps(340,360,310,340), saps(320,500,170,180), saps(150,180,220,340), saps(0,40,150,340), saps(120,150,180,340), saps(40,120,200,340), saps(240,500,200,210), saps(240,260,180,210)];#saps(0,260,470,500), saps(350,420,470,480), saps(320,350,470,480), saps(430,500,390,400), saps(0,10,0,90), saps(10,40,0,90), saps(40,160,0,30), saps(0,360,320,340), saps(240,500,200,210), saps(240,260,450,500), saps(340,360,310,340), saps(240,500,180,210), saps(320,500,170,180), saps(150,180,220,340), saps(0,40,150,340), saps(40,150,180,340)];
-water = [];
-death = [kaps(260,500,480,500), kaps(40,120,180,200), kaps(260,500,180,200)];
-win = daps(450, 500, 90, 170);
-a = win[0];
-score = 0;
-startcoins = [coin(50,90), coin(50,100), coin(50,120), coin(50,110), coin(50,130), coin(50,140), coin(50,150), coin(280,380), coin(330,460), coin(390,460), coin(360,460), coin(450,380), coin(350,300), coin(240,310), coin(190,270), coin(200,220), coin(140,170),  coin(250,170), coin(330,160), coin(380,160), coin(430,160)];
-coins = [];
-for i in startcoins:
-	coins.append(i);
-starttallgooms = [tallgoom(210,440), tallgoom(290,290)];
-tallgooms = [];
-for i in starttallgooms:
-	tallgooms.append(i);
-startbuffgooms=[];
-buffgooms = [];
-for i in startbuffgooms:
-	buffgooms.append(buffgoom(i.x,i.y));
-startfiregooms=[];
-firegooms = [];
-for i in startfiregooms:
-	firegooms.append(firegoom(i.x,i.y));
-startoctogooms= [];
-octogooms = [];
-for i in startoctogooms:
-	octogooms.append(octogoom(i.x,i.y));
-jumpmon = nop;
-nomp= False;
-done=False;
-startx= 0;
-starty= 430;
-x=startx;
-y=starty;
-tex=True;
-while not done:
-	dude();
-tscore+=score;
-level+=1 if level == tklevel else 0;
-tklevel+=1;
 
-clsn();
-draws = [];
-water = [];
-death = [];
-win = daps(0,0,0,0);
-a = win[0];
-score = 0;
-startcoins = [];
-coins = [];
-for i in startcoins:
-	coins.append(i);
-starttallgooms = [];
-tallgooms = [];
-for i in starttallgooms:
-	tallgooms.append(i);
-startbuffgooms=[];
-buffgooms = [];
-for i in startbuffgooms:
-	buffgooms.append(buffgoom(i.x,i.y));
-startfiregooms=[];
-firegooms = [];
-for i in startfiregooms:
-	firegooms.append(firegoom(i.x,i.y));
-startoctogooms= [];
-octogooms = [];
-for i in startoctogooms:
-	octogooms.append(octogoom(i.x,i.y));
-jumpmon = nop;
-nomp= False;
-done=False;
-startx= 100;
-starty= 480;
-x=startx;
-y=starty;
-tex=True;
-while not done:
-	dude();
-tscore+=score;
-level+=1 if level == tklevel else 0;
-tklevel+=1;
+
+
 '''#level template
 clsn();
 draws = [];
@@ -2009,6 +1975,47 @@ nomp= False;
 done=False;
 startx= 70;
 starty= 400;
+x=startx;
+y=starty;
+tex=True;
+while not done:
+	dude();
+tscore+=score;
+level+=1 if level == tklevel else 0;
+tklevel+=1;
+bosslevel=False;
+clsn();
+draws = [saps(0,140,90,500), saps(140,480,180,260), saps(480,490,180,260), saps(152,490,400,470), saps(490,500,400,470)];
+water = [];
+death = [];
+win = daps(140, 500, 490, 500);
+a = win[0];
+score = 0;
+startcoins = [];
+coins = [];
+for i in startcoins:
+	coins.append(i);
+starttallgooms = [];
+tallgooms = [];
+for i in starttallgooms:
+	tallgooms.append(i);
+startbuffgooms=[buffgoom(380,160), buffgoom(250,380)];
+buffgooms = [];
+for i in startbuffgooms:
+	buffgooms.append(buffgoom(i.x,i.y));
+startfiregooms=[];
+firegooms = [];
+for i in startfiregooms:
+	firegooms.append(firegoom(i.x,i.y));
+startoctogooms= [];
+octogooms = [];
+for i in startoctogooms:
+	octogooms.append(octogoom(i.x,i.y));
+jumpmon = nop;
+nomp= False;
+done=False;
+startx= 16;
+starty= 70;
 x=startx;
 y=starty;
 tex=True;
