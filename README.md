@@ -1,15 +1,11 @@
 # mr-maby
-nintendo please dont sue
-
+nintendo please dont sue  
 arrow keys to move
+* left: left
+* right: right
+* up: jump
+* down: ground pound?
 
-left: left
-
-right: right
-
-up: jump
-
-
-
-
-
+## Info
+This was the first game I ever made, its entirely in python, includes my own physics engine, and is completely unreadable.  
+I retconned in a ground pound at some point.
